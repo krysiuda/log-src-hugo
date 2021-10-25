@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "pa: the log is still live in 2018"
+date:   2018-01-07
+tags:
+- pa
+---
+
+# pa: the log is still live in 2018
+
+I've finally integrated the blog with a commenting service. Feel free to leave comments!
+
+I also plan to use [a git repository on github](https://github.com/krysiuda/log.git) to host code samples from this page.
+
+New year's resolution: proofread before publish. Never enought proofreading, and never enought time.
+
+Please use the [timeline](timeline/) to view my posts in chronological order.
+Use the [hashtags](hashtags/) to find posts in related subjects.

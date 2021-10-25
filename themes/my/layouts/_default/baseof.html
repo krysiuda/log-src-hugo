@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+<meta charset="utf-8">
+{{ hugo.Generator }}
+{{- if or .Description .Site.Params.description }}
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+{{- end }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="alternate" type="application/rss+xml" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="{{ .Site.Title }}">
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/index.css" />
+{{- if or .Params.math .Site.Params.math }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}katex/katex.min.css">
+<script defer src="{{ .Site.BaseURL }}katex/katex.min.js"></script>
+<script defer src="{{ .Site.BaseURL }}katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+{{- end }}
+
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+        {{ if not (gt (len .Site.Menus) 1) }}
+          <div class="mdl-layout-title my-site-header">{{ .Site.Title }}</div>
+        {{ end }}
+        <div class="mdl-layout-spacer"></div>
+        {{ range $menu, $items := .Site.Menus }}
+          <nav class="mdl-navigation">
+          {{ range $items }}
+            <div style="margin: 0 1em"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" href="{{ .URL }}">{{ .Name }}</a></div>
+          {{ end }}
+          </nav>
+        {{ end }}
+    </div>
+  </header>
+  <div class="my-decor"></div>
+  <main class="my-container mdl-layout__content">
+  {{- block "main" . }}{{- end }}
+  </main>
+  <footer class="mdl-mega-footer">
+    <div class="mdl-mega-footer--middle-section">
+      <p class="mdl-typography--font-light">by Krystian Siuda 2016-2021</p>
+      <p class="mdl-typography--font-light">This work is licensed under a <a class="my-footer-link" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    </div>
+
+    <div class="mdl-mega-footer__bottom-section">
+      <div class="mdl-logo">{{ .Site.Title }}</div>
+      {{ range $menu, $items := .Site.Menus }}
+        <ul class="mdl-mega-footer__link-list">
+        {{ range $items }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </footer>
+</div>
+
+</html>

@@ -1,0 +1,8 @@
+name = "My"
+license = "public domain"
+licenselink = ""
+description = "My material-ish theme"
+homepage = ""
+tags = ["blog"]
+features = ["blog"]
+min_version = "0.1"

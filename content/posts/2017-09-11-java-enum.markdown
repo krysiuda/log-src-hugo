@@ -1,0 +1,136 @@
+---
+layout: post
+title:  "java extendable enum"
+date:   2017-09-11
+tags:
+- broken
+- java
+- enum
+---
+
+# java extendable enum #
+
+Java enums can't be extended.
+
+## two analogues ##
+
+The following class and enum are practically exchangeable.
+
+```java
+    public enum JavaEnum {
+        VAL1(\"1\"), VAL2(\"2\");
+
+        String value;
+
+        JavaEnum(String value) {
+            this.value = value;
+        }
+    }
+
+    public static final class ClassEnum {
+        public static final ClassEnum VAL1 = new ClassEnum(\"1\");
+        public static final ClassEnum VAL2 = new ClassEnum(\"2\");
+
+        private final String value;
+
+        private ClassEnum(String value) {
+            this.value = value;
+        }
+    }
+```
+
+But, the latter gives a lot more freedom for tweaking, as I demonstrate below.
+
+## tweaking ##
+
+Let's pretend we have a order tracking system holding current status.
+
+Note I'm using HashMap to allow a quick translation between ``String`` representation.
+
+```java
+package net.siuda.enums;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+public class OrderState {
+
+    protected static final HashMap&lt;String, OrderState&gt; CODES = new HashMap&lt;String, OrderState&gt;();
+
+    public static final OrderState NEW = newWithCode(\"NEW\");
+    public static final OrderState CONFIRMED = newWithCode(\"CON\");
+    public static final OrderState COMPLETED = newWithCode(\"COM\");
+
+    protected String code;
+
+    protected OrderState(String code) {
+        this.code = code;
+    }
+
+    private static OrderState newWithCode(String code) {
+        OrderState that = new OrderState(code);
+        CODES.put(code, that);
+        return that;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public static OrderState forCode(String code) {
+        return CODES.get(code);
+    }
+
+    public static Set&lt;String&gt; listCodes() {
+        return CODES.keySet();
+    }
+
+    public static Collection&lt;OrderState&gt; list() {
+        return CODES.values();
+    }
+
+}
+```
+
+Now, we might want to have a special list of order's possible statuses:
+
+```java
+package net.siuda.enums;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+public class OrderStateExt extends OrderState {
+
+    protected static final HashMap&lt;String, OrderState&gt; CODES = (HashMap&lt;String, OrderState&gt;) OrderState.CODES.clone();
+
+    public static final OrderState VERIFIED = newWithCode(\"VER\");
+
+    protected OrderStateExt(String code) {
+        super(code);
+    }
+
+    private static OrderState newWithCode(String code) {
+        OrderState that = new OrderState(code);
+        CODES.put(code, that);
+        return that;
+    }
+
+    public static OrderState forCode(String code) {
+        return CODES.get(code);
+    }
+
+    public static Set&lt;String&gt; listCodes() {
+        return CODES.keySet();
+    }
+
+    public static Collection&lt;OrderState&gt; list() {
+        return CODES.values();
+    }
+
+}
+```
+
+Enjoy.

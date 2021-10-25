@@ -1,0 +1,22 @@
+baseURL = "http://log.siuda.net/"
+languageCode = "en-us"
+title = "log.siuda.net"
+theme = "my"
+
+[menu]
+   [[menu.main]]
+    identifier = "recent"
+    name = "Recent"
+    url = "/"
+    weight = -10
+   [[menu.main]]
+    identifier = "archive"
+    name = "Archive"
+    url = "/posts/"
+    weight = 10
+    [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 10
+ 
