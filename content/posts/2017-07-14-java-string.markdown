@@ -142,7 +142,7 @@ I have tested the implemnetation by replacing space characters with a double und
 
 
 ```java
-    private final static String testC = \"this a very long string with a lots of spaces that all need to be replaced with a double underscore character\";
+    private final static String testC = "this a very long string with a lots of spaces that all need to be replaced with a double underscore character";
     private final static String testCa = testC + testC + testC + testC + testC + testC + testC + testC + testC + testC; // 10 times testC
     private final static String testCase = testCa + testCa + testCa + testCa + testCa + testCa + testCa + testCa + testCa + testCa; // 10 times testCase
 ```

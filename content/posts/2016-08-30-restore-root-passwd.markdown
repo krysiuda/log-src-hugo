@@ -8,6 +8,7 @@ tags:
 - lvm
 - linux
 ---
+
 # restoring root password #
 
 I often find stashed virtual machine images containing useful things I could reuse; but, I can no longer find user credentials to log into these machines.
@@ -48,9 +49,9 @@ If you are not using lvm, you can skip the first 2 steps, and mount the disk (bl
 Use following commands:
 
 ```bash
-# this yields volume groups names, e.g. \"fedora\"
+# this yields volume groups names, e.g. "fedora"
 vgscan
-# this activates volume group \"fedora\"
+# this activates volume group "fedora"
 vgchange -a y fedora
 # you may need to list logical volumes
 lvdisplay

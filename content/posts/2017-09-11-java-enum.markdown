@@ -18,7 +18,7 @@ The following class and enum are practically exchangeable.
 
 ```java
     public enum JavaEnum {
-        VAL1(\"1\"), VAL2(\"2\");
+        VAL1("1"), VAL2("2");
 
         String value;
 
@@ -28,8 +28,8 @@ The following class and enum are practically exchangeable.
     }
 
     public static final class ClassEnum {
-        public static final ClassEnum VAL1 = new ClassEnum(\"1\");
-        public static final ClassEnum VAL2 = new ClassEnum(\"2\");
+        public static final ClassEnum VAL1 = new ClassEnum("1");
+        public static final ClassEnum VAL2 = new ClassEnum("2");
 
         private final String value;
 
@@ -56,11 +56,11 @@ import java.util.Set;
 
 public class OrderState {
 
-    protected static final HashMap&lt;String, OrderState&gt; CODES = new HashMap&lt;String, OrderState&gt;();
+    protected static final HashMap<String, OrderState> CODES = new HashMap<String, OrderState>();
 
-    public static final OrderState NEW = newWithCode(\"NEW\");
-    public static final OrderState CONFIRMED = newWithCode(\"CON\");
-    public static final OrderState COMPLETED = newWithCode(\"COM\");
+    public static final OrderState NEW = newWithCode("NEW");
+    public static final OrderState CONFIRMED = newWithCode("CON");
+    public static final OrderState COMPLETED = newWithCode("COM");
 
     protected String code;
 
@@ -104,9 +104,9 @@ import java.util.Set;
 
 public class OrderStateExt extends OrderState {
 
-    protected static final HashMap&lt;String, OrderState&gt; CODES = (HashMap&lt;String, OrderState&gt;) OrderState.CODES.clone();
+    protected static final HashMap<String, OrderState> CODES = (HashMap<String, OrderState>) OrderState.CODES.clone();
 
-    public static final OrderState VERIFIED = newWithCode(\"VER\");
+    public static final OrderState VERIFIED = newWithCode("VER");
 
     protected OrderStateExt(String code) {
         super(code);

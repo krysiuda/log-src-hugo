@@ -17,7 +17,7 @@ I often receive a long list of newly created machines. It is hard to track all p
 The following command line iterates over a set of machines IPs, adds them to known hosts, prompts for the password and installs the public key (so the password will not be used for next logins).
 
 ```bash
-for i in 11 12 13 14 15 ; do cat ~/.ssh/id_rsa.pub | ssh 10.0.0.$i \"mkdir .ssh ; cat > .ssh/authorized_keys ; chmod -R go-rwx .ssh\" ; done
+for i in 11 12 13 14 15 ; do cat ~/.ssh/id_rsa.pub | ssh 10.0.0.$i "mkdir .ssh ; cat > .ssh/authorized_keys ; chmod -R go-rwx .ssh" ; done
 ```
 
 The script writes the current user's public key to a new remote ``authorized_keys`` file, and sets it's file permissions accordingly.

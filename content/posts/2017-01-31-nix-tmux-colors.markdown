@@ -17,7 +17,7 @@ I prefer tmux to try to reattach to a session before creating a new one, this ba
 
 ```bash
 # always try to reattach
-alias tmux=\"tmux attach\"
+alias tmux="tmux attach"
 ```
 
 ## .tmux.conf ##
@@ -33,7 +33,7 @@ set -g prefix M-a
 bind M-a send-key M-a
 
 # use colors 256
-set -g default-terminal \"screen-256color\"
+set -g default-terminal "screen-256color"
 
 # select pane
 bind -n M-Left select-pane -L

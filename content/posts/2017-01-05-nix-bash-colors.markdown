@@ -29,17 +29,17 @@ The ``username@host:/path/`` format in the prompt is taken from ``scp``, you can
 find_git_branch() {
   local branch
   if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-    if [[ \"$branch\" == \"HEAD\" ]]; then
+    if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    git_branch=\"($branch)\"
+    git_branch="($branch)"
   else
-    git_branch=\"\"
+    git_branch=""
   fi
 }
 
-PROMPT_COMMAND=\"find_git_branch; $PROMPT_COMMAND\"
-PS1=\"\\n\\[\\e[38;5;247m\\e[48;5;237m\\]\\u@\\H:\\[\\e[38;5;15m\\]\\w\\[\\e[48;5;236m\\] \\[\\e[48;5;235m\\] \\[\\e[48;5;234m\\] \\[\\e[48;5;233m\\] \\[\\e[48;5;232m\\] \\[\\e[m\\e[38;5;237m\\]   \t   \\$?   \\$git_branch   \\[\\e[m\\]\n\\[\\e[38;5;237m\\e[48;5;237m\\] \\[\\e[m\\e[38;5;226m\\] $ \\[\\e[m\\]\"
+PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
+PS1="\n\[\e[38;5;247m\e[48;5;237m\]\u@\H:\[\e[38;5;15m\]\w\[\e[48;5;236m\] \[\e[48;5;235m\] \[\e[48;5;234m\] \[\e[48;5;233m\] \[\e[48;5;232m\] \[\e[m\e[38;5;237m\]   \t   \$?   \$git_branch   \[\e[m\]\n\[\e[38;5;237m\e[48;5;237m\] \[\e[m\e[38;5;226m\] $ \[\e[m\]"
 
 ```
 

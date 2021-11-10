@@ -74,8 +74,8 @@ public class SeparatingClassLoader extends URLClassLoader {
         return url;
     }
 
-    protected Class&lt;?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
-        Class&lt;?> c = findLoadedClass(name);
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+        Class<?> c = findLoadedClass(name);
         if(c == null && canResolve(name)) {
             c = findClass(name);
         }
@@ -91,7 +91,7 @@ public class SeparatingClassLoader extends URLClassLoader {
 
     protected boolean canResolve(final String name)
     {
-        String path = name.replace('.', '/').concat(\".class\");
+        String path = name.replace('.', '/').concat(".class");
         return findResource(path) != null;
     }
 
@@ -104,7 +104,7 @@ Later the class needs to be loaded, easiest way to do it is by using reflection:
         ClassLoader cl = new SeparatingClassLoader(urls, this.getClass().getClassLoader());
         Class clazz = cl.loadClass(theClass);
         Object object = clazz.newInstance();
-        Method method = clazz.getMethod(\"run\"); // public method on the class
+        Method method = clazz.getMethod("run"); // public method on the class
         method.invoke(object);
 ```
 

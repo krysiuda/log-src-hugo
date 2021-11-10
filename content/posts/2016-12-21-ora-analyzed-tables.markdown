@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "get not analyzed tables on oracle"
+title:  "list not analyzed tables on oracle"
 date:   2016-12-21
 tags:
 - oracle
 - sql
 ---
 
-# oracle pl/sql routine to get tables which were not analyzed #
+# oracle pl/sql routine to list tables which were not analyzed #
 
 While working on projects having oracle database we might need to confirm if tables' statistics are properly collected.
 As tables are added to the database with newer releases and the trigger used for gathering statistics may change over time (job, cron, ...) we might need to verify manually if the collection works properly.

@@ -15,7 +15,7 @@ Useful when you need to recreate the database schema using SQL script, or a ORM.
 ```sql
 declare
 cursor c_get_objects is
-  select object_type,'\"'||object_name||'\"'||decode(object_type,'TABLE' ,' cascade constraints',null) obj_name
+  select object_type,'"'||object_name||'"'||decode(object_type,'TABLE' ,' cascade constraints',null) obj_name
   from user_objects -- change this if you want to clear someone else's objects
   where object_type in ('TABLE','VIEW','PACKAGE','SEQUENCE','SYNONYM','MATERIALIZED VIEW','TYPE','FUNCTION') -- add more if you need
   order by object_type;
