@@ -9,7 +9,7 @@ tags:
 - linux
 ---
 
-# restoring root password #
+# restoring root password
 
 I often find stashed virtual machine images containing useful things I could reuse; but, I can no longer find user credentials to log into these machines.
 
@@ -19,7 +19,7 @@ Please note the following solutions will prompt for password for encrypted drive
 
 Any solution given below can also be applied to a physical linux box, as long as we have a physical access to the machine.
 
-## grub2 ##
+## grub2
 
 Hit `e` in the grub menu to edit the configuration before booting.
 
@@ -33,7 +33,7 @@ boot the kernel by pressing `Ctrl-X`.
 
 You should get a root shell just after kernel startup. Use `passwd` to change the password.
 
-## mounting volume and fs ##
+## mounting volume and fs
 
 Boot the machine with a portable linux image (preferably a linux distribution installation image).
 Go to the shell:
