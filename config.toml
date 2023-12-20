@@ -1,7 +1,8 @@
 baseURL = "http://log.siuda.net/"
 languageCode = "en-us"
 title = "log.siuda.net"
-theme = "my"
+theme = "old"
+#theme = "my"
 
 [menu]
    [[menu.main]]
@@ -19,4 +20,3 @@ theme = "my"
     name = "Tags"
     url = "/tags/"
     weight = 10
- 

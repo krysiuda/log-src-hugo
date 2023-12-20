@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "blog and static site generation"
+date:   2023-03-12
+tags:
+- blog
+- static
+- hugo
+summary: A quick story on how I felt in love with static site generation
+---
+
+# how this log started
+
+It just happened one day in business lounge of Brussels Zaventem airport 😇️.
+
+I thought I will share some of my notes publicly. I had and still have no time to really make a story out of the notes, not to even mention proofreading.
+But I wanted to share the notes, somehow give back to the community. If people try to google stackoverflow, one might want to google my notes. The one might also be future me.
+
+## how I made it
+
+For some time I had been looking at [jsoup](https://jsoup.org/) project thinking about how it could be applied to format a text content using html template. I also needed a way for editing and formatting the text. Needing something that would allow me to edit my notes on the fly (quite literally, on my phone during a short-haul flight) markdown has brought my attention.
+
+And this is how the first version of the blog started. I've created a quick mashup of gradle build script, jsoup html processing, java markdown and pushed the result on a public s3 bucket. Before I went off into air I had a working prototype.
+
+## why changed it
+
+After three years I got even more busy. I wanted to experiment more with the html layout (there was a material-ui layout here for a moment, I hated it), and I needed even more flexibility without need to mess with the gradle build. I thought I will try to use an existing site generation engine. One that fits between a blogging platform like [wordpress](https://wordpress.com/) and the crude solution I already had. Soon I've found something called [hugo](https://gohugo.io/). Because all my notes were already written in markdown I had little to change to make them work with the new engine.
+
+## how it is done now
+
+With the power of docker containers I have a trivial 2-line script that builds this blog from collection of markdown notes and pushes it up to a s3 bucket. It uses existing docker images. Hassle and maintenance free.
+All notes, scripts (literally 3 lines of bash commands), are now stored in a [github repository](https://github.com/krysiuda/log-src-hugo).
+
+Hugo allows me to write text in the markdown, and renders a complete blog in the background, displaying changes whenever I hit ```Ctrl+S```. Neat.
