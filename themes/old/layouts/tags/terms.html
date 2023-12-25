@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+{{ $Pages := .Pages }}
+
+<section id="hashtags">
+  <h1>{{ .Title }}</h1>
+  <ol>
+    {{- range ($Pages.ByTitle) }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+    {{- end }}
+  </ol>
+  {{ .Content }}
+</section>
+
+{{ end }}

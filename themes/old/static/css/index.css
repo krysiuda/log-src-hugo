@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'PTSans';
+  src:  url('PTSans-Regular.woff2') format('woff');
+}
+body {
+    font-family: PTSans, Georgia, serif;
+    margin: 2em;
+}
+@media screen and (min-width: 1300px) {
+    body {
+        margin: 0 auto;
+        width: 1200px;
+    }
+}
+body > header > h1 {
+    float: left;
+}
+body > header > h1:before {
+    content: '\2615';
+    padding-right: 0.25em;
+}
+body > header > nav {
+    float: right;
+    border-bottom: #ddd solid 1px;
+    margin-bottom: 2em;
+}
+body > header > nav > ul > li {
+    float: left;
+    display: block;
+    margin: 10px;
+}
+body > header > nav > ul > li > a {
+    color: inherit !important;
+    text-decoration: none !important;
+    border-bottom: #fff solid 2px;
+    animation-name: headnav-hover-out;
+    animation-duration: 1s;
+}
+body > header > nav > ul > li > a:active {
+    border-bottom: #ddd solid 2px;
+}
+body > header > nav > ul > li > a:hover {
+    border-bottom: #bbb solid 2px;
+    animation-name: headnav-hover-in;
+    animation-duration: 1s;
+}
+@keyframes headnav-hover-in {
+    0%   { border-bottom: #fff solid 2px; }
+    100% { border-bottom: #bbb solid 2px; }
+}
+@keyframes headnav-hover-out {
+    0%   { border-bottom: #bbb solid 2px; }
+    100% { border-bottom: #fff solid 2px; }
+}
+body > article {
+    clear: both;
+    margin-bottom: 35px;
+}
+body > article > header.post {
+    font-size: 75%;
+}
+body > article > header.post > ul {
+    display: inline;
+    padding: 0;
+}
+body > article > header.post > ul > li {
+    display: inline;
+    list-style-type: none;
+    padding-left: 1em;
+}
+body > article > header.post > ul > li:before {
+    content: '#';
+}
+body > article p , body > article li {
+    margin: 1em 0;
+    line-height: 2;
+}
+body > article div.highlight > pre {
+    overflow: scroll;
+    padding: 1em;
+}
+body > article > footer.preview > a:after {
+    content: ' \2192';
+}
+body > article div.img {
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+body > article div.img > img {
+    padding: 1em;
+}
+body > footer {
+    padding: 30px;
+    margin: 70px 0;
+    border: #ddd solid 1px;
+    background-color: #fafafa;
+    box-shadow: 0.5em 0.5em 0.5em #ddd;
+}
+body > footer > nav > ul {
+    padding: 0;
+}
+body > footer > nav > ul > li {
+    margin: 0.25em 1em;
+}
+body > footer > nav > ul > li > a {
+    margin-left: 0;
+}
+ul {
+    list-style-type: square;
+}
+a {
+    color: #0000ff;
+    text-decoration: none;
+}
+a:active {
+    color: #0000dd;
+}
+a:hover {
+    text-decoration: underline;
+}
+section#comments ol {
+    padding: 1em 2em;
+    border-left: #aaa solid 1px;
+}
+section#comments ol li {
+    display: block;
+    margin: 1em 0;
+}
+section#timeline {
+    margin: 70px 0;
+    border-left: #aaa solid 1px;
+}
+section#timeline:before {
+    content: '\1F4C5';
+    font-size: 200%;
+    padding-left: 5px;
+    float: left;
+}
+section#timeline:after {
+    content: '';
+    display: block;
+    width: 1em;
+    height: 1em;
+    margin-left: calc(-0.5em - 1px);
+    padding: 0;
+    border-left: #aaa solid 1px;
+    border-bottom: #aaa solid 1px;
+    transform: rotate(-45deg);
+}
+section#timeline ol {
+    padding: 1em 2em;
+}
+section#timeline ol li {
+    display: block;
+    margin: 1em 0;
+}
+section#timeline time:after {
+    padding-left: 1em;
+    content: '\2014';
+    padding-right: 1em;
+}
+section#hashtags {
+    margin: 70px 0;
+    border-left: #aaa solid 1px;
+}
+section#hashtags:before {
+    content: '\1F516';
+    font-size: 200%;
+    padding-left: 5px;
+    float: left;
+}
+section#hashtags > ol > li:before {
+    content: '#';
+}
+section#hashtags ol {
+    padding: 1em 2em;
+}
+section#hashtags ol li {
+    display: block;
+    margin: 1em 0;
+}
+section#hashtags time:after {
+    padding-left: 1em;
+    content: '\2014';
+    padding-right: 1em;
+}
+section#cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+section#cards div.card {
+  max-width: 33%;
+  min-width: 300px;
+  border: #aaa solid 1px;
+  box-shadow: 0.5em 0.5em 0.5em #aaa;
+  padding: 2em;
+}
+section#cards div.card div.title {
+  font-size: 150%;
+}
+section#cards div.card div.date {
+  font-size: 50%;
+  padding-top: 1em;
+}
+section#cards div.card div.summary {
+  padding-top: 1em;
+}
+section#cards div.card div.link {
+  padding-top: 1em;
+  text-align: right;
+}

@@ -1,0 +1,8 @@
+name = "Old"
+license = "public domain"
+licenselink = ""
+description = "My old log theme"
+homepage = ""
+tags = ["blog"]
+features = ["blog"]
+min_version = "0.1"
